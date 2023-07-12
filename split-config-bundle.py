@@ -2,6 +2,9 @@
 import sys
 import os
 
+# Maybe we should use the configparser module instead of this custom parser?
+import configparser
+
 class Config:
     def __init__(self, fileName, contents):
         self.fileName = fileName
@@ -43,6 +46,8 @@ def main(targetBundlePath):
             configurationsFound.append(Config(fileName, contents))
         
         print("Found " + str(len(configurationsFound)) + " configurations in total")
+
+
 
         outputDir = "export-profiles"
         for configuration in configurationsFound:
